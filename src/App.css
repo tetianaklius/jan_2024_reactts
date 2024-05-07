@@ -1,0 +1,12 @@
+.App {
+    display: flex;
+    flex-direction: row;
+}
+
+.users {
+    width: 50vw;
+}
+
+.posts {
+    width: 50vw;
+}
