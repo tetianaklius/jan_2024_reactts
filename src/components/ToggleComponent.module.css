@@ -1,0 +1,15 @@
+.main {
+    font-size: x-large;
+}
+
+.button {
+    border: 0;
+    background: rgba(70, 42, 104, 0.78);
+    width: 100px;
+    height: 30px;
+    color: white;
+}
+
+.button:hover {
+    cursor: pointer;
+}
