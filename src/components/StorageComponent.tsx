@@ -14,9 +14,9 @@ const StorageComponent: FC = () => {
 
     return (
         <div>
-            name: {valueToShow.name}
+            name: {valueToShow?.name}
             <br/>
-            age: {valueToShow.age}
+            age: {valueToShow?.age}
         </div>
     );
 };
