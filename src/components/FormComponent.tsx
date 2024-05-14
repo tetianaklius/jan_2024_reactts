@@ -8,7 +8,7 @@ import PostsComponent from "./PostsComponent";
 
 const FormComponent: FC = () => {
     const [posts, setPosts] = useState<IPost[]>([]);
-    const [newPost, setNewPost] = useState<IPost>();
+    const [newPost, setNewPost] = useState<IPost | null>(null);
 
     let {register, handleSubmit, formState: {errors}} = useForm<IPost>({
         mode: "all",
@@ -21,10 +21,9 @@ const FormComponent: FC = () => {
             setNewPost(v.data);
         });
         getAllPosts().then(({data}) => {
-            let fullPostsArray = [...data, newPost]
-            // setPosts(fullPostsArray);
+            setPosts(data);
         });
-        resetForm()
+        resetForm();
     }
 
     const resetForm = () => {
@@ -50,6 +49,12 @@ const FormComponent: FC = () => {
                 {
                     posts && <div><PostsComponent posts={posts}/></div>
                 }
+                {newPost && <div>
+                    <p> userId: {newPost?.userId}</p>
+                    <p> postId: {newPost?.id}</p>
+                    <p> title: {newPost?.title}</p>
+                    <p> body: {newPost?.body}</p>
+                </div>}
             </div>
         </div>
     );
