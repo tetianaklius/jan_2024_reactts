@@ -2,7 +2,11 @@ import Joi from "joi";
 
 export const postValidator = Joi.object(
     {
-        userId: Joi.number().min(1).max(10).required().messages({}),
+        userId: Joi.number().min(1).max(10).required().messages({
+            "number.required": "userId is required",
+            "number.min": "userId should be from 1 to 10",
+            "number.max": "userId should be from 1 to 10"
+        }),
         title: Joi.string().max(25).pattern(/^[a-zA-Z ,!:-]+$/).required().messages({
             "string.pattern.base": "only words allowed and symbols ,!:-",
             "string.required.base": "title is required",

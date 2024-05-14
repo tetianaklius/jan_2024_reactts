@@ -34,14 +34,21 @@ const FormComponent: FC = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(send)} name={"post_create_form"}>
-                <input id={"input_1"} type="number"{...register("userId")}/>
-                {errors.userId && <span>{errors.userId.message}</span>}
+                <label>userId:
+                    <br/>
+                    <input id={"input_1"} type="number"{...register("userId")}/>
+                    {errors.userId && <span>{errors.userId.message}</span>}
+                </label>
                 <br/>
-                <input id={"input_2"} type="text"{...register("title")}/>
-                {errors.title && <span>{errors.title.message}</span>}
+                <label>title: <br/>
+                    <input id={"input_2"} type="text"{...register("title")}/>
+                    {errors.title && <span>{errors.title.message}</span>}
+                </label>
                 <br/>
-                <input id={"input_3"} type="text"{...register("body")}/>
-                {errors.body && <span>{errors.body.message}</span>}
+                <label>post body: <br/>
+                    <input id={"input_3"} type="text"{...register("body")}/>
+                    {errors.body && <span>{errors.body.message}</span>}
+                </label>
                 <br/>
                 <button>send</button>
             </form>
