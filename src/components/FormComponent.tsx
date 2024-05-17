@@ -22,12 +22,12 @@ const FormComponent: FC = () => {
     }, [])
 
 
-    const send = (formObject: IPost) => {
-        postPost(formObject).then(v => {
+    const send = async (formObject: IPost) => {
+        await postPost(formObject).then(v => {
             console.log(v.status, v.data);
             setNewPost(v.data);
         });
-        getAllPosts().then(({data}) => {
+        await getAllPosts().then(({data}) => {
             setPosts(data);
         });
         resetForm();
