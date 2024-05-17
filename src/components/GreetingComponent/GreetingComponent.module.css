@@ -1,0 +1,12 @@
+.greeting_text {
+    font-size: 15vh;
+    text-align: center;
+    justify-content: center;
+}
+
+.greeting_block {
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

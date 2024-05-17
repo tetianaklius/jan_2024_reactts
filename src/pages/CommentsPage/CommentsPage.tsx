@@ -4,7 +4,7 @@ import CommentsComponent from "../../components/CommentsComponent/CommentsCompon
 const CommentsPage = () => {
     return (
         <div>
-            <div>Comments</div>
+            <div><b>Comments</b></div>
             <CommentsComponent/>
         </div>
     );

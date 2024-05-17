@@ -1,0 +1,13 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    height: 30vh;
+    align-items: center;
+    justify-content: center;
+    background: rgba(233, 224, 245, 0.78);
+}
+
+.navItem {
+    width: 10vw;
+    font-size: x-large;
+}

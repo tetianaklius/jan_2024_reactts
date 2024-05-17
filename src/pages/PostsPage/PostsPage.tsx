@@ -4,7 +4,7 @@ import PostsComponent from "../../components/PostsComponent/PostsComponent";
 const PostsPage = () => {
     return (
         <div>
-            <div>Posts</div>
+            <div><b>Posts</b></div>
             <PostsComponent/>
         </div>
     );

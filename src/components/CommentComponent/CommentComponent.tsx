@@ -9,6 +9,7 @@ const CommentComponent = (comment: IComment) => {
             <p>name: {comment.name}</p>
             <p>email: {comment.email}</p>
             <p>body: {comment.body}</p>
+            <hr/>
         </div>
     );
 };

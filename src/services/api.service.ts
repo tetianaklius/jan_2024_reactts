@@ -13,24 +13,16 @@ export const services = {
         getAllUsers: (): Promise<AxiosResponse<IUser[]>> => {
             return axiosInstance.get("users");
         },
-        someKey: {},
-        someKey2: {}
     },
     postApiService: {
         getAllPosts: (): Promise<AxiosResponse<IPost[]>> => {
             return axiosInstance.get("posts");
         },
-        // getPostsByUserId: (userId:number): Promise<AxiosResponse<IPost[]>> => {
-        //     return axiosInstance.get(`users/${userId}/posts`);
-        // },
-        someKey2: {}
     },
     commentApiService: {
         getAllComments: (): Promise<AxiosResponse<IComment[]>> => {
             return axiosInstance.get("comments");
         },
-        someKey: {},
-        someKey2: {}
     },
 
 }

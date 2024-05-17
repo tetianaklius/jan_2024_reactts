@@ -7,6 +7,7 @@ const PostComponent = (post: IPost) => {
             <p>{post.id}. <span>{post.title}</span></p>
             <p>userId: {post.userId}</p>
             <p>{post.body}</p>
+            <hr/>
         </div>
     );
 };
