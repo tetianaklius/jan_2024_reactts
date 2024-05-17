@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useForm} from "react-hook-form";
 import {postValidator} from "../validators/post.validator";
 import {joiResolver} from "@hookform/resolvers/joi";
@@ -14,6 +14,13 @@ const FormComponent: FC = () => {
         mode: "all",
         resolver: joiResolver(postValidator)
     })
+
+    useEffect(() => {
+        getAllPosts().then(({data}) => {
+            setPosts(data);
+        });
+    }, [])
+
 
     const send = (formObject: IPost) => {
         postPost(formObject).then(v => {
@@ -56,6 +63,7 @@ const FormComponent: FC = () => {
                 {
                     posts && <div><PostsComponent posts={posts}/></div>
                 }
+                <hr/>
                 {newPost && <div>
                     <p> userId: {newPost?.userId}</p>
                     <p> postId: {newPost?.id}</p>
