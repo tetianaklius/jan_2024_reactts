@@ -1,7 +1,9 @@
 import React from 'react';
+
 import {IComment} from "../../interfaces/IComment";
 
 const CommentComponent = (comment: IComment) => {
+
     return (
         <div>
             <p>id: {comment.id}</p>

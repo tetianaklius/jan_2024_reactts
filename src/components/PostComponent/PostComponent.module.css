@@ -1,0 +1,13 @@
+.post {
+    background: rgba(239, 236, 242, 0.89);
+}
+
+.show_comments {
+    border: none;
+    background: rgba(195, 174, 223, 0.78);
+    font-weight: bold;
+}
+
+.show_comments:hover {
+    cursor: pointer;
+}

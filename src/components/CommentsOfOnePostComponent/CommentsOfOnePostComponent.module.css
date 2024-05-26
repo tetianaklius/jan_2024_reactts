@@ -1,0 +1,6 @@
+.comments_list {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3vw;
+}
