@@ -1,0 +1,9 @@
+.car_box {
+    background: rgba(236, 231, 244, 0.78);
+    width: 30vw;
+    margin-top: 2vh;
+}
+
+.car_box span {
+    font-weight: bold;
+}

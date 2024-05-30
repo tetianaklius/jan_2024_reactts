@@ -1,0 +1,10 @@
+.footer_block {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background: rgba(80, 38, 105, 0.16);
+    font-size: x-large;
+    font-weight: lighter;
+}
