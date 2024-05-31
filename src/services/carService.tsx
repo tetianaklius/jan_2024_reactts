@@ -28,9 +28,14 @@ export const carService = {
         } catch (error) {
             const axiosError = error as AxiosError;
             if (axiosError?.response?.status === 401) {
-                const refreshToken = retriveLocalStorageData<ITokenObtainPair>("tokenPair").refresh;
-                await authService.refresh(refreshToken);
-                await carService.getAllCars();
+                try {
+                    const refreshToken = retriveLocalStorageData<ITokenObtainPair>("tokenPair").refresh;
+                    await authService.refresh(refreshToken);
+                    await carService.getAllCars();
+                } catch (error) {
+                    console.log(error)
+                    document.body.innerHTML = `<a href="/" style="font-size: xx-large">Log in here please</a>`
+                }
             }
         }
     }
