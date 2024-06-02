@@ -19,7 +19,7 @@ axiosInstance.interceptors.request.use(request => {
 )
 
 export const carService = {
-    getAllCars: async () => {
+    getAllCars: async (): Promise<ICarsPaginated | undefined> => {
 
         try {
             const axiosResp = await axiosInstance.get<ICarsPaginated>("/cars");
