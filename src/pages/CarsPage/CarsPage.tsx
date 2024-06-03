@@ -9,7 +9,7 @@ import PaginationComponent from "../../components/PaginationComponent/Pagination
 
 
 const CarsPage = () => {
-    const [query, setQuery] = useSearchParams({page: "1"})
+    const [query, setQuery] = useSearchParams()
 
     const [carsPaginatedObj, setCarsPaginatedObj] = useState<ICarsPaginated>({
         items: [],
@@ -28,22 +28,11 @@ const CarsPage = () => {
         )
     }, [query]);
 
-    const changePage = (action: string) => {
-        switch (action) {
-            case "prev":
-                setQuery({...carsPaginatedObj.prev})
-                break;
-            case "next":
-                setQuery({...carsPaginatedObj.next})
-                break;
-        }
-    }
-
     return (
         <div className={styles.common}>
-            <PaginationComponent changePage={changePage} prev={carsPaginatedObj.prev} next={carsPaginatedObj.next}/>
+            <PaginationComponent prev={carsPaginatedObj.prev} next={carsPaginatedObj.next}/>
             <CarsComponent cars={carsPaginatedObj.items}/>
-            <PaginationComponent changePage={changePage} prev={carsPaginatedObj.prev} next={carsPaginatedObj.next}/>
+            <PaginationComponent prev={carsPaginatedObj.prev} next={carsPaginatedObj.next}/>
         </div>
     );
 };
