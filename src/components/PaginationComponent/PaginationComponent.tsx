@@ -12,7 +12,7 @@ interface IProps {
 const PaginationComponent: FC<IProps> = ({prev, next}) => {
 
     const [query, setQuery] = useSearchParams({page: "1"})
-    const changePage = (action: string) => {
+    const changePage = (action: string): void => {
         switch (action) {
             case "prev":
                 setQuery({...prev})
