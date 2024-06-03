@@ -19,10 +19,10 @@ axiosInstance.interceptors.request.use(request => {
 )
 
 export const carService = {
-    getAllCars: async (): Promise<ICarsPaginated | undefined> => {
+    getAllCars: async (page: string): Promise<ICarsPaginated | undefined> => {
 
         try {
-            const axiosResp = await axiosInstance.get<ICarsPaginated>("/cars");
+            const axiosResp = await axiosInstance.get<ICarsPaginated>("/cars", {params: {page: page}});
             return axiosResp.data;
 
         } catch (error) {
@@ -31,7 +31,7 @@ export const carService = {
                 try {
                     const refreshToken = retriveLocalStorageData<ITokenObtainPair>("tokenPair").refresh;
                     await authService.refresh(refreshToken);
-                    await carService.getAllCars();
+                    await carService.getAllCars(page);
                 } catch (error) {
                     console.log(error)
                     document.body.innerHTML = `<a href="/" style="font-size: xx-large">Log in here please</a>`
