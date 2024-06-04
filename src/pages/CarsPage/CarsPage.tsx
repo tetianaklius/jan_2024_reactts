@@ -49,6 +49,7 @@ const CarsPage = () => {
 
         }
         getCarsData();
+        console.log("needed some changes in file")
     }, [query]);
 
     return (

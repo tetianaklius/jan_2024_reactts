@@ -21,6 +21,7 @@ const PaginationComponent: FC<IProps> = ({prev, next}) => {
                 setQuery({...next})
                 break;
         }
+        console.log("needed some changes in file")
     }
 
 
