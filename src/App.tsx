@@ -13,6 +13,7 @@ const App = () => {
 
     const [users, setUsers] = useState<IUser[]>([]);
     const [posts, setPosts] = useState<IPost[]>([]);
+    const [chosenUser, setChosenUser] = useState<IUser | null>(null);
 
 
     useEffect(() => {
@@ -20,20 +21,31 @@ const App = () => {
         postsApiService.getAllPosts().then(v => setPosts(v.data))
     }, [])
 
+    const chosenUserLift = (obj: IUser) => {
+        setChosenUser(obj)
+    }
+
     return (
         <div>
             <HeaderComponent/>
 
             <SomeContext.Provider value={{
-                    userStore: {
-                        allUsers: users
-                    },
-                    postStore: {
-                        allPosts: posts
-                    }}
+                userStore: {
+                    allUsers: users,
+                    setChosenUser: (obj: IUser) => {
+                        chosenUserLift(obj)
+                    }
+                },
+                postStore: {
+                    allPosts: posts
+                }
+            }
             }>
                 <Outlet/>
             </SomeContext.Provider>
+
+            <hr/>
+            {chosenUser && <div><b>{chosenUser.name}</b> {chosenUser.email}</div>}
 
         </div>
     );

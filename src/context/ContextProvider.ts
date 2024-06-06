@@ -5,7 +5,8 @@ import {IPost} from "../interfaces/IPost";
 
 type StoreType = {
     userStore: {
-        allUsers: IUser[]
+        allUsers: IUser[],
+        setChosenUser: (obj: IUser) => void
     },
     postStore: {
         allPosts: IPost[]
@@ -14,7 +15,8 @@ type StoreType = {
 
 const defaultValue: StoreType = {
     userStore: {
-        allUsers: []
+        allUsers: [],
+        setChosenUser: () => {}
     },
     postStore: {
         allPosts: []
