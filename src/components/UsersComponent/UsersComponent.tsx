@@ -1,11 +1,10 @@
-import React, {useContext} from 'react';
+import React, {FC} from 'react';
 
 import UserComponent from "../UserComponent/UserComponent";
-import {SomeContext} from "../../context/ContextProvider";
+import {storeX} from "../../context/ContextProvider";
 
-const UsersComponent = () => {
-
-    const {userStore: {allUsers}} = useContext(SomeContext);
+const UsersComponent:FC = () => {
+    const {usersStore: {allUsers}} = storeX();
 
     return (
         <div>

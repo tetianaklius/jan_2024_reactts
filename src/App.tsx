@@ -1,52 +1,44 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Outlet} from "react-router-dom";
 
 import './App.css';
 import {HeaderComponent} from "./components/HeaderComponent/HeaderComponent";
+import {storeX} from "./context/ContextProvider";
 import {usersApiService} from "./services/users.api.service";
 import {postsApiService} from "./services/posts.api.service";
-import {SomeContext} from "./context/ContextProvider";
-import {IUser} from "./interfaces/IUser";
-import {IPost} from "./interfaces/IPost";
+import {commentsApiService} from "./services/comments.api.service";
+
 
 const App = () => {
-
-    const [users, setUsers] = useState<IUser[]>([]);
-    const [posts, setPosts] = useState<IPost[]>([]);
-    const [chosenUser, setChosenUser] = useState<IUser | null>(null);
-
+    const {
+        usersStore,
+        usersStore: {chosenUser},
+        postsStore,
+        postsStore: {chosenPost},
+        commentsStore,
+    } = storeX();
 
     useEffect(() => {
-        usersApiService.getAllUsers().then(v => setUsers(v.data))
-        postsApiService.getAllPosts().then(v => setPosts(v.data))
+        usersApiService.getAllUsers().then(v => {
+            usersStore.setAllUsers(v.data)
+        });
+        postsApiService.getAllPosts().then(v => {
+            postsStore.setAllPosts(v.data)
+        });
+        commentsApiService.getAllComments().then(v => {
+            commentsStore.setAllComments(v.data)
+        });
     }, [])
-
-    const chosenUserLift = (obj: IUser) => {
-        setChosenUser(obj)
-    }
 
     return (
         <div>
             <HeaderComponent/>
-
-            <SomeContext.Provider value={{
-                userStore: {
-                    allUsers: users,
-                    setChosenUser: (obj: IUser) => {
-                        chosenUserLift(obj)
-                    }
-                },
-                postStore: {
-                    allPosts: posts
-                }
-            }
-            }>
-                <Outlet/>
-            </SomeContext.Provider>
-
             <hr/>
-            {chosenUser && <div><b>{chosenUser.name}</b> {chosenUser.email}</div>}
-
+            {chosenUser && <div>chosen user: <b>{chosenUser.name}</b> {chosenUser.email}</div>}
+            <hr/>
+            {chosenPost && <div> chosen post: {chosenPost.id} <b>{chosenPost.title}</b></div>}
+            <hr/>
+            <Outlet/>
         </div>
     );
 };

@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
+import React, {FC} from 'react';
 
-import {SomeContext} from "../../context/ContextProvider";
 import PostComponent from "../PostComponent/PostComponent";
+import {storeX} from "../../context/ContextProvider";
 
-const PostsComponent = () => {
-    const {postStore:{allPosts}} = useContext(SomeContext);
+const PostsComponent: FC = () => {
+    const {postsStore: {allPosts}} = storeX();
 
     return (
         <div>

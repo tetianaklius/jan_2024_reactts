@@ -1,10 +1,10 @@
-import React, {useContext, useEffect, useMemo, useState} from 'react';
+import React, {FC, useEffect, useMemo, useState} from 'react';
 
-import {SomeContext} from "../../context/ContextProvider";
 import {UserWithPostsType} from "../../interfaces/UserWithPostsType";
+import {storeX} from "../../context/ContextProvider";
 
-const UserPostsComponent = () => {
-    const {postStore: {allPosts}, userStore: {allUsers}} = useContext(SomeContext);
+const UsersPostsComponent: FC = () => {
+    const {postsStore: {allPosts}, usersStore: {allUsers}} = storeX();
     const [usersWithPostsState, setUsersWithPostsState] = useState<UserWithPostsType[]>([])
 
     const userWithPostsArray = useMemo(() => {
@@ -22,7 +22,7 @@ const UserPostsComponent = () => {
     return (
         <div>
             {usersWithPostsState.map(user => <div key={user.id}>
-                <div>{user.name}</div>
+                <div><b>{user.name}</b></div>
                 <ul>
                     {
                         user.posts.map(post => <li key={post.id}>{post.id}. {post.title}</li>)
@@ -33,4 +33,4 @@ const UserPostsComponent = () => {
     );
 };
 
-export default UserPostsComponent;
+export default UsersPostsComponent;

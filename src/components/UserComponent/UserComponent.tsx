@@ -1,14 +1,14 @@
-import React, {FC, useContext} from 'react';
+import React, {FC} from 'react';
 
 import {IUser} from "../../interfaces/IUser";
-import {SomeContext} from "../../context/ContextProvider";
+import {storeX} from "../../context/ContextProvider";
 
 interface IProps {
     user: IUser
 }
 
 const UserComponent: FC<IProps> = ({user}) => {
-    const {userStore: {setChosenUser}} = useContext(SomeContext);
+    const {usersStore: {setChosenUser}} = storeX();
 
     return (
         <div>
