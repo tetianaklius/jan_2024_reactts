@@ -7,7 +7,7 @@ const PostsCommentsComponent: FC = () => {
     const {postsStore: {allPosts}, commentsStore: {allComments}} = storeX();
     const [postsWithCommentsState, setPostsWithCommentsState] = useState<PostWithCommentsType[]>([]);
 
-    const postsWithCommentsArray = useMemo(() => {
+    const postsWithCommentsArray = useMemo<() => PostWithCommentsType[]>(() => {
         return () => {
             return allPosts.map(post => {
                 return {...post, comments: allComments.filter(comment => comment.postId === post.id)};

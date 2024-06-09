@@ -7,7 +7,7 @@ const UsersPostsComponent: FC = () => {
     const {postsStore: {allPosts}, usersStore: {allUsers}} = storeX();
     const [usersWithPostsState, setUsersWithPostsState] = useState<UserWithPostsType[]>([])
 
-    const userWithPostsArray = useMemo(() => {
+    const userWithPostsArray = useMemo<() => UserWithPostsType[]>(() => {
         return () => {
             return allUsers.map(user => {
                 return {...user, posts: allPosts.filter(post => post.userId === user.id)};
