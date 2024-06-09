@@ -4,6 +4,8 @@ import App from "../App";
 import UserPostsPage from "../pages/UserPostsPage/UserPostsPage";
 import PostsPage from "../pages/PostsPage/PostsPage";
 import UsersPage from "../pages/UsersPage/UsersPage";
+import CommentsPage from "../pages/CommentsPage/CommentsPage";
+import PostCommentsPage from "../pages/PostCommentsPage/PostCommentsPage";
 
 
 const routes: RouteObject[] = [
@@ -22,6 +24,14 @@ const routes: RouteObject[] = [
             {
                 path: "userPosts",
                 element: <UserPostsPage/>
+            },
+            {
+                path: "comments",
+                element: <CommentsPage/>
+            },
+            {
+                path: "postComments",
+                element: <PostCommentsPage/>
             },
         ]
     }

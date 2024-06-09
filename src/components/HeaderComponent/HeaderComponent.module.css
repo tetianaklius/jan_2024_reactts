@@ -1,0 +1,11 @@
+.header_box {
+    margin: 0;
+    height: 20vh;
+    background: rgba(220, 208, 227, 0.8);
+    display: flex;
+    align-items: center;
+}
+
+.header_box ul {
+    margin: 0;
+}
