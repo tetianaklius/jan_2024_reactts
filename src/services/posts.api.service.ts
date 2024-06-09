@@ -10,8 +10,5 @@ let axiosInstance = axios.create({
 export const postsApiService = {
     getAllPosts: (): Promise<AxiosResponse<IPost[]>> => {
         return axiosInstance.get("posts");
-    },
-    getPostsByUserId: (UserId: string): Promise<AxiosResponse<IPost[]>> => {
-        return axiosInstance.get(`users/${UserId}/posts`);
     }
 }
