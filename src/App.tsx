@@ -45,7 +45,7 @@ const App = () => {
                 {chosenComments.length > 0 &&
                     <div> chosen comments: <br/>
                         {Array.isArray(chosenComments) && chosenComments.map(comment =>
-                            <div>
+                            <div key={comment.id}>
                                 <b>comment {comment.id}</b> to post {comment.postId} (by {comment.email}):
                                 <br/>"{comment.body}"
                                 <button
