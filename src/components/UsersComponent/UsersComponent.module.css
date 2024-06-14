@@ -1,0 +1,14 @@
+.main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.users_box {
+    width: 20%;
+    min-width: 20vw;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -1,0 +1,15 @@
+.main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.posts_box {
+    width: 35%;
+    min-width: 30vw;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    justify-content: center;
+}

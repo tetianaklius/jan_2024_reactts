@@ -1,0 +1,14 @@
+.header_common {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(70, 42, 104, 0.31);
+}
+
+.nav_bar {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
