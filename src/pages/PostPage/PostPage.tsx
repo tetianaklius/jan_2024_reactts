@@ -11,7 +11,9 @@ const PostPage = () => {
     const {post} = useAppSelector(state => state.postsSlice);
 
     useEffect(() => {
-        dispatch(postsActions.loadPostById(id))
+        if (id) {
+            dispatch(postsActions.loadPostById(id))
+        }
     }, [id]);
 
     return (

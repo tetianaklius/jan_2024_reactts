@@ -33,8 +33,7 @@ const loadPosts = createAsyncThunk(
 
 const loadPostById = createAsyncThunk(
     "postsSlice/loadPostById",
-    async (id: string | undefined, thunkAPI) => {
-        if (id) {
+    async (id: string, thunkAPI) => {
             try {
                 const post = await postService.getById(id)
                 return thunkAPI.fulfillWithValue(post)
@@ -42,8 +41,6 @@ const loadPostById = createAsyncThunk(
                 const error = e as AxiosError
                 return thunkAPI.rejectWithValue(error.response?.data)
             }
-        }
-        return null;
     }
 )
 
